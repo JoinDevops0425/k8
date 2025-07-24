@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: resource-limiting-demo
+  labels:
+    name: label 
+
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    resources:
+      requests: # Soft Limit
+        memory: '64Mi'
+        cpu: "100m"
+      limits: # Hard limit, can extened upto this limit, not more
+        memory: "128Mi"
+        cpu: "150m"
